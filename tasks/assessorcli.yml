@@ -10,13 +10,13 @@
 
     - name: Copy assessor cli zip to host
       win_copy:
-        src: ~/Ansible/meta/Assessor-CLI-4.0.2.zip
-        dest: "C:\\SecOps\\Assessor-CLI-4.0.2.zip"
+        src: ~/Ansible/meta/Assessor-CLI.zip
+        dest: "C:\\SecOps\\Assessor-CLI.zip"
 
     - name: Unzip assessor cli zip
       win_unzip:
-        src: "C:\\SecOps\\Assessor-CLI-4.0.2.zip"
-        dest: "C:\\SecOps\\Assessor-CLI-4.0.2"
+        src: "C:\\SecOps\\Assessor-CLI.zip"
+        dest: "C:\\SecOps\\Assessor-CLI"
 
     - name: Run assessor cli batch file
-      win_command: C:\SecOps\Assessor-CLI-4.0.2\Assessor-CLI\Assessor-CLI.bat -b C:\SecOps\Assessor-CLI-4.0.2\Assessor-CLI\benchmarks\CIS_Microsoft_Windows_Server_2012_R2_Benchmark_v2.3.0-xccdf.xml -csv
+      win_command: C:\SecOps\Assessor-CLI\Assessor-CLI\Assessor-CLI.bat -b C:\SecOps\Assessor-CLI\Assessor-CLI\benchmarks\CIS_Microsoft_Windows_Server_2012_R2_Benchmark_v2.3.0-Member_Server-xccdf.xml -p xccdf_org.cisecurity.benchmarks_profile_Level_1_-_Member_Server  -csv
