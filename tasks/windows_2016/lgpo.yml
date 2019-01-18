@@ -1,0 +1,23 @@
+---
+- hosts: win2k16
+  gather_facts: no
+  tasks:
+    - name: Create security operations directories
+      win_file:
+        path: "{{item}}"
+        state: directory
+      with_items:
+       - "C:\\Scripts\\SecOps"
+
+    - name: Create lgpo cli on host
+      win_copy:
+        src: ~/Ansible/meta/LGPO.zip
+        dest: "C:\\Scripts\\SecOps\\LGPO.zip"
+
+    - name: Unzip file
+      win_unzip:
+        src: "C:\\Scripts\\SecOps\\LGPO.zip"
+        dest: "C:\\Scripts\\SecOps\\LGPO"
+
+    - name: Run lgpo export script
+      win_shell: C:\\Scripts\\SecOps\\LGPO\\LGPO\\LGPO-Export.ps1

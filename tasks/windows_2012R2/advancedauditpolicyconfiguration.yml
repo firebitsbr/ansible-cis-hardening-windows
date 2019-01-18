@@ -1,0 +1,142 @@
+---
+- hosts: win
+  tasks:
+  - name: "17.1.1 (L1) Ensure Audit Credential Validation is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Credential Validation
+      audit_type: success, failure
+
+  - name: "17.2.1 (L1) Ensure Audit Application Group Management is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Application Group Management
+      audit_type: success, failure
+
+  - name: "17.2.2 (L1) Ensure Audit Computer Account Management is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Computer Account Management
+      audit_type: success, failure
+      
+  - name: "17.2.3 (L1) Ensure Audit Distribution Group Management is set to Success and Failure (DC only)"
+    win_audit_policy_system:
+      subcategory: Distribution Group Management
+      audit_type: success, failure
+
+  - name: "17.2.4 (L1) Ensure Audit Other Account Management Events is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Other Account Management Events
+      audit_type: success, failure
+
+  - name: "17.2.5 (L1) Ensure Audit Security Group Management is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Security Group Management
+      audit_type: success, failure
+
+  - name: "17.2.6 (L1) Ensure Audit User Account Management is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: User Account Management
+      audit_type: success, failure
+
+  - name: "17.3.1 (L1) Ensure 'Audit Process Creation' is set to 'Success'"
+    win_audit_policy_system:
+        subcategory: Process Creation
+        audit_type: success
+  
+  - name: "17.3.2 (L1) Ensure Audit Process Creation is set to Success"
+    win_audit_policy_system:
+      subcategory: Process Creation
+      audit_type: success
+
+  - name: "17.4.1 (L1)  Ensure Audit Directory Service Access is set to Success and Failure (DC only)"
+    win_audit_policy_system:
+      subcategory: Directory Service Access
+      audit_type: success, failure
+
+  - name: "17.4.2 (L1)  Ensure Audit Directory Service Changes is set to Success and Failure (DC only)"
+    win_audit_policy_system:
+      subcategory: Directory Service Changes
+      audit_type: success, failure
+
+  - name: "17.5.1 (L1) Ensure Audit Account Lockout is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Account Lockout
+      audit_type: success, failure
+
+  - name: "17.5.2 (L1) Ensure Audit Group Membership is set to Success"
+    win_audit_policy_system:
+      subcategory: Distribution Group Management
+      audit_type: success
+
+  - name: "17.5.3 (L1) Ensure Audit Logoff is set to Success"
+    win_audit_policy_system:
+      subcategory: Logoff
+      audit_type: success
+
+  - name: "17.5.4 (L1) Ensure Audit Logon is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Logon
+      audit_type: success, failure
+
+  - name: "17.5.5 (L1)  Ensure Audit Other Logon/Logoff Events is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Other Logon/Logoff Events
+      audit_type: success, failure
+
+  - name: "17.5.6 (L1)  Ensure Audit Special Logon is set to Success"
+    win_audit_policy_system:
+      subcategory: Special Logon
+      audit_type: success
+
+  - name: "17.6.1 (L1)  Ensure Audit Other Object Access Events is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Other Object Access Events
+      audit_type: success, failure
+
+  - name: "17.6.2 (L1)  Ensure Audit Removable Storage is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Removable Storage
+      audit_type: success, failure
+
+  - name: "17.7.1 (L1)  Ensure Audit Audit Policy Change is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Audit Policy Change
+      audit_type: success, failure
+
+  - name: "17.7.2 (L1)  Ensure Audit Authentication Policy Change is set to Success"
+    win_audit_policy_system:
+      subcategory: Authentication Policy Change
+      audit_type: success
+
+  - name: "17.7.3 (L1)  Ensure Audit Authorization Policy Change is set to Success"
+    win_audit_policy_system:
+      subcategory: Authorization Policy Change
+      audit_type: success
+
+  - name: "17.8.1 (L1) Ensure Audit Sensitive Privilege Use is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Sensitive Privilege Use
+      audit_type: success, failure
+
+  - name: "17.9.1 (L1) Ensure Audit IPsec Driver is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: IPsec Driver
+      audit_type: success, failure
+
+  - name: "17.9.2 (L1) Ensure Audit Other System Events is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Other System Events
+      audit_type: success, failure
+
+  - name: "17.9.3 (L1) Ensure Audit Security State Change is set to Success"
+    win_audit_policy_system:
+      subcategory: Security State Change
+      audit_type: success
+
+  - name: "17.9.4 (L1) Ensure Audit Security System Extension is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: Security System Extension
+      audit_type: success, failure
+
+  - name: "17.9.5 (L1) Ensure Audit System Integrity is set to Success and Failure"
+    win_audit_policy_system:
+      subcategory: System Integrity
+      audit_type: success, failure

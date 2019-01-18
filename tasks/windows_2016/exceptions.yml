@@ -1,0 +1,55 @@
+---
+- hosts: win2k16
+  tasks:
+  - name: "17.5.2 (L1) Ensure Audit Group Membership is set to Success"
+    win_audit_policy_system:
+      subcategory: Distribution Group Management
+      audit_type: success
+
+    #- name: 2.2.21 (L1) Ensure 'Deny access to this computer from the network' is set to 'Guests, Local account and member of Administrators group' (MS only)
+    #  win_user_right:
+    #    name: SeDenyNetworkLogonRight
+    #    users: 
+    #    - Guests
+    #    - Local account and member of Administrators group
+    #    action: set
+
+    #- name: "18.9.76.10.1 (L1) Ensure 'Scan removable drives' is set to 'Enabled'"
+    #  win_regedit:
+    #          path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Scan
+    #          name: "DisableRemovableDriveScanning"
+    #          data: "1"
+    #          type: dword   
+
+    #- name: "2.3.10.11 (L1) Ensure 'Network access: Restrict clients allowed to make remote calls to SAM' is set to 'Administrators: Remote Access: Allow' (MS only)"
+    #  win_regedit:
+    #         path: HKLM:\SYSTEM\CurrentControlSet\Control\Lsa
+    #         name: "restrictremotesam"
+    #          data: "O:BAG:BAD:(A;;RC;;;BA)"
+    #          type: dword
+
+    #- name: "2.3.6.1 (L1) Ensure 'Domain member: Digitally encrypt or sign secure channel data (always)' is set to 'Enabled'"
+    #  win_regedit:
+    #          path: HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
+    #          name: "RequireSignOrSeal"
+    #          data: "1"
+    #          type: dword
+
+    #- name: "2.3.10.7 (L1) Configure 'Network access: Named Pipes that can be accessed anonymously' (MS only)"
+    #  win_regedit:
+    #          path: HKLM:\SYSTEM\CurrentControlSet\Control\Lsa
+    #         name: "EveryoneIncludesAnonymous"
+    #          data: "7"
+    #         type: string
+            
+    #- name: "17.5.2 (L1) Ensure Audit Group Membership is set to Success"
+    #  win_audit_policy_system:
+    #    subcategory: Distribution Group Management
+    #    audit_type: success
+
+    #- name: "17.3.1 (L1) Ensure Audit PNP Activity is set to Success" 
+    #  win_audit_policy_system:
+    #    subcategory: PNP Activity
+    #   audit_type: success
+
+    

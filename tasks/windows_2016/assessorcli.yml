@@ -1,0 +1,30 @@
+---
+- hosts: win2k16
+  gather_facts: no
+  tasks:
+    - name: Create Scripts directory
+      win_file:
+        path: "{{item}}"
+        state: directory
+      with_items:
+       - "C:\\Scripts"
+
+    - name: Create SecOps directory
+      win_file:
+        path: "{{item}}"
+        state: directory
+      with_items:
+       - "C:\\Scripts\\SecOps"
+
+    - name: Copy assessor cli zip to host
+      win_copy:
+        src: ~/Ansible/meta/Assessor-CLI.zip
+        dest: "C:\\Scripts\\SecOps\\Assessor-CLI.zip"
+
+    - name: Unzip assessor cli zip
+      win_unzip:
+        src: "C:\\Scripts\\SecOps\\Assessor-CLI.zip"
+        dest: "C:\\Scripts\\SecOps\\Assessor-CLI"
+
+    - name: Run assessor cli batch file
+      win_command: C:\Scripts\SecOps\Assessor-CLI\Assessor-CLI\Assessor-CLI.bat -b C:\Scripts\SecOps\Assessor-CLI\Assessor-CLI\benchmarks\CIS_Microsoft_Windows_Server_2016_RTM_Release_1607_Benchmark_v1.1.0-xccdf.xml -p xccdf_org.cisecurity.benchmarks_profile_Level_1_-_Member_Server  -csv
